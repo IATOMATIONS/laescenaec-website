@@ -10,47 +10,157 @@
   <meta property="og:description" content="{{ .Params.description | default .Site.Params.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #1a1a2e; background: #fff; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #1a0a2e 100%); color: #fff; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
-    nav { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 1.5rem; font-weight: 700; color: #fff; text-decoration: none; }
-    .logo span { color: #e94560; }
-    nav ul { display: flex; list-style: none; gap: 1.5rem; }
-    nav ul li a { color: #ccc; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; text-transform: uppercase; letter-spacing: 1px; }
-    nav ul li a:hover { color: #e94560; }
-    main { min-height: 60vh; }
-    .hero { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #1a0a2e 100%); color: #fff; padding: 6rem 0 4rem; text-align: center; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero h1 span { color: #e94560; }
-    .hero p { font-size: 1.2rem; color: #aaa; max-width: 700px; margin: 0 auto 2rem; }
-    .content { padding: 3rem 0; }
-    .content h1 { font-size: 2rem; margin-bottom: 1.5rem; }
-    .content h2 { font-size: 1.5rem; margin: 2rem 0 1rem; }
-    .content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
-    .content p { margin-bottom: 1rem; }
-    .content ul, .content ol { margin: 1rem 0; padding-left: 2rem; }
-    .content a { color: #2d1b69; text-decoration: underline; }
-    .content a:hover { color: #e94560; }
-    .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; }
-    footer { background: #1a0a2e; color: #666; padding: 2rem 0; text-align: center; font-size: 0.85rem; }
-    @media (max-width: 768px) { .hero h1 { font-size: 2rem; } nav ul { gap: 0.8rem; } }
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #111118;
+      --bg-elevated: #181825;
+      --border: #1e1e30;
+      --text: #e8e8f0;
+      --text-secondary: #8888a0;
+      --accent: #e94560;
+      --accent-light: #ff6b81;
+      --accent-glow: rgba(233,69,96,0.12);
+      --gold: #d4a853;
+      --gold-light: #e8c46a;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 2px; }
+    .logo span { color: var(--accent); }
+    .logo small { font-size: 0.6rem; font-weight: 400; color: var(--text-secondary); display: block; letter-spacing: 3px; text-transform: uppercase; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 8px 20px; border-radius: 8px; letter-spacing: 0.5px !important; transition: all 0.2s !important; }
+    .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+    .hero {
+      padding: 180px 0 100px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 50% 40%, var(--accent-glow) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(233,69,96,0.1); border: 1px solid rgba(233,69,96,0.25);
+      padding: 8px 20px; border-radius: 100px; font-size: 0.75rem; color: var(--accent-light);
+      margin-bottom: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+    .hero-scroll { margin-top: 48px; }
+    .hero-scroll a { color: var(--text-secondary); text-decoration: none; font-size: 1.5rem; }
+
+    section { padding: 80px 0; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 16px; }
+    .section-desc { color: var(--text-secondary); max-width: 600px; font-size: 1.05rem; margin-bottom: 48px; }
+
+    .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .audience-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 40px; text-align: center; transition: all 0.2s;
+    }
+    .audience-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .audience-card img { width: 100%; border-radius: var(--radius); margin-bottom: 20px; border: 1px solid var(--border); }
+    .audience-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .audience-card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+    .audience-card a { color: var(--accent-light); text-decoration: none; font-weight: 500; }
+
+    .trust-bar {
+      display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap;
+      padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      margin: 40px 0; color: var(--text-secondary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .trust-bar span { color: var(--gold); font-weight: 600; }
+
+    .ecosystem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .eco-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 32px; text-align: center;
+    }
+    .eco-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .eco-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+
+    .brand-section { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .brand-section img { width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+    .brand-features { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .brand-feature { display: flex; align-items: flex-start; gap: 14px; background: var(--bg-card); padding: 16px 20px; border-radius: var(--radius); border: 1px solid var(--border); }
+    .brand-feature-icon { width: 32px; height: 32px; min-width: 32px; border-radius: 8px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: 700; }
+
+    .cta-section {
+      background: linear-gradient(135deg, rgba(233,69,96,0.08), transparent);
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 64px; text-align: center;
+    }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 12px; }
+    .cta-section p { color: var(--text-secondary); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff; padding: 14px 32px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+    .page-content { padding: 140px 0 80px; }
+    .page-content .content { max-width: 800px; margin: 0 auto; }
+    .page-content .content h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 24px; }
+    .page-content .content h2 { font-size: 1.5rem; margin: 40px 0 16px; }
+    .page-content .content p { margin-bottom: 16px; color: var(--text-secondary); }
+    .page-content .content a { color: var(--accent-light); }
+    .page-content .content img { max-width: 100%; border-radius: var(--radius); margin: 24px 0; border: 1px solid var(--border); }
+
+    footer { border-top: 1px solid var(--border); padding: 40px 0; margin-top: 40px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer p { color: var(--text-secondary); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .audience-grid, .brand-section, .ecosystem-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 40px 24px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <a href="/" class="logo">LA <span>ESCENA</span> EC</a>
-        <ul>
+        <a href="/" class="logo">LA <span>ESCENA</span> <small>ECUADOR</small></a>
+        <ul class="nav-links">
           {{- $current := .RelPermalink -}}
-          {{- range .Site.Menus.main }}
-          <li><a href="{{ .URL }}"{{ if eq $current .URL }} style="color:#e94560;"{{ end }}>{{ .Name }}</a></li>
-          {{- end }}
+          <li><a href="/"{{ if eq $current "/" }} style="color:#fff;"{{ end }}>Inicio</a></li>
+          <li><a href="/servicios/"{{ if hasPrefix $current "/servicios" }} style="color:#fff;"{{ end }}>Servicios</a></li>
+          <li><a href="/experiencias/"{{ if hasPrefix $current "/experiencias" }} style="color:#fff;"{{ end }}>Experiencias</a></li>
+          <li><a href="/marcas/"{{ if hasPrefix $current "/marcas" }} style="color:#fff;"{{ end }}>Marcas</a></li>
+          <li><a href="/contacto/" class="nav-cta">Contacto</a></li>
         </ul>
       </nav>
     </div>
