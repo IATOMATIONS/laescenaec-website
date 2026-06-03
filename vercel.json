@@ -1,0 +1,7 @@
+{
+  "name": "laescenaec-website",
+  "framework": "hugo",
+  "buildCommand": "hugo --gc --minify",
+  "outputDirectory": "public",
+  "installCommand": ""
+}
