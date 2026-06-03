@@ -1,10 +1,32 @@
 baseURL: 'https://laescenaec.com/'
 languageCode: 'es-ec'
 title: 'LA ESCENA EC — Eventos y Entretenimiento en Ecuador'
-theme: 'ananke'
 publishDir: 'public'
-disableKinds: ['RSS', 'sitemap', 'robotsTXT', '404']
 
 params:
   description: 'Eventos, festivales y entretenimiento en Ecuador. Venta de entradas, experiencias y más.'
   author: 'LA ESCENA EC'
+
+menu:
+  main:
+    - name: Inicio
+      url: /
+      weight: 1
+    - name: Servicios
+      url: /servicios/
+      weight: 2
+    - name: Experiencias
+      url: /experiencias/
+      weight: 3
+    - name: Marcas
+      url: /marcas/
+      weight: 4
+    - name: Contacto
+      url: /contacto/
+      weight: 5
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
