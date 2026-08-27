@@ -1,36 +1,49 @@
 {{ define "main" }}
 <section class="hero">
-  <div class="container hero-content">
-    <div class="hero-badge">✦ Fase de Pre-Lanzamiento</div>
-    <h1>La Nueva Era del<br><span>Entretenimiento</span></h1>
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Pre-Lanzamiento · Temporada 2026
+    </div>
+    <h1>La Nueva Era del<br><span class="gradient-text">Entretenimiento</span></h1>
     <p>No solo hacemos eventos. Creamos las historias que Ecuador recordará mañana.</p>
-    <a href="#ecosystem" class="hero-scroll">↓</a>
+    <div class="hero-buttons">
+      <a href="/contacto/" class="btn-primary">Iniciar Solicitud →</a>
+      <a href="/experiencias/" class="btn-secondary">Ver Experiencias</a>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="audience-grid">
-      <div class="audience-card">
-        <img src="https://laescenaec.com/wp-content/uploads/2026/03/B2B-inicio-LAESCENA-scaled.webp" alt="Inversores B2B" loading="lazy" onerror="this.style.display='none'">
+    <div class="split-grid">
+      <div class="split-card cyan">
         <h3>Para Inversores</h3>
-        <p>Oportunidades de inversión en la industria del entretenimiento en Ecuador.</p>
-        <a href="/marcas/">Oportunidades Marcas →</a>
+        <p>Oportunidades de inversión en la industria del entretenimiento en Ecuador. Modelo de ticketing in-house con 150% de deducción fiscal y ROI auditado.</p>
+        <a href="/marcas/" class="btn-secondary">Oportunidades Marcas →</a>
       </div>
-      <div class="audience-card">
-        <img src="https://laescenaec.com/wp-content/uploads/2026/03/Fans-inicio.LAESCENA-scaled.webp" alt="Promotores y Fans" loading="lazy" onerror="this.style.display='none'">
+      <div class="split-card purple">
         <h3>Para Promotores</h3>
-        <p>Producción de eventos con estándares internacionales.</p>
-        <a href="/servicios/">Producir un Evento →</a>
+        <p>Producción integral con estándares internacionales. Producción técnica, booking, gestión legal y activaciones BTL en un solo operador.</p>
+        <a href="/servicios/" class="btn-primary">Producir Evento →</a>
       </div>
     </div>
 
     <div class="trust-bar">
-      <span>✦</span> Gestión avalada por
-      <span>Ministerio de Cultura</span> •
-      <span>SAYCE</span> •
-      <span>SOPROFON</span> •
+      <span>✦</span>
+      <span class="brand">Gestión Avalada</span>
+      <span class="divider">·</span>
+      <span>Ministerio de Cultura</span>
+      <span class="divider">·</span>
+      <span>SAYCE</span>
+      <span class="divider">·</span>
+      <span>SOPROFON</span>
+      <span class="divider">·</span>
       <span>SRI Compliant</span>
+      <span class="divider">·</span>
+      <span>CIIU R9000.01</span>
       <span>✦</span>
     </div>
   </div>
@@ -38,19 +51,22 @@
 
 <section id="ecosystem">
   <div class="container">
-    <h2 class="section-title">Nuestro Ecosistema</h2>
+    <h2 class="section-title">Nuestro <span class="gradient-text">Ecosistema</span></h2>
     <p class="section-desc">Tres pilares que hacen posible la experiencia LA ESCENA.</p>
-    <div class="ecosystem-grid">
+    <div class="eco-grid">
       <div class="eco-card">
-        <h3>🎬 Producción Técnica</h3>
+        <div class="eco-icon">🎬</div>
+        <h3>Producción Técnica</h3>
         <p>Estándares internacionales. Cero fallos. Ejecutamos desde el rider técnico hasta la dirección de escenario.</p>
       </div>
       <div class="eco-card">
-        <h3>🛡️ El Escudo Legal</h3>
-        <p>Gestión integral de permisos municipales, contratos de mandato y blindaje operativo (CIIU R9000.01).</p>
+        <div class="eco-icon">🛡️</div>
+        <h3>Escudo Legal</h3>
+        <p>Permisos municipales, contratos de mandato y blindaje operativo bajo CIIU R9000.01.</p>
       </div>
       <div class="eco-card">
-        <h3>📊 Booking & Data</h3>
+        <div class="eco-icon">📊</div>
+        <h3>Booking & Data</h3>
         <p>Maximizamos el ROI. Negociación directa con agencias y análisis predictivo de audiencia para tu taquilla.</p>
       </div>
     </div>
@@ -59,32 +75,45 @@
 
 <section>
   <div class="container">
-    <div class="section-title">Tu marca en el centro de la experiencia.</div>
-    <div class="brand-section">
+    <div class="brand-grid">
       <div>
-        <p class="section-desc" style="margin-bottom:32px">Transformamos eventos masivos en plataformas de conexión profunda. Ofrecemos oportunidades de patrocinio estratégico y activaciones BTL con total transparencia corporativa.</p>
+        <h2 class="section-title">Tu marca en el centro de <span class="gradient-text">la experiencia</span></h2>
+        <p class="section-desc">Transformamos eventos masivos en plataformas de conexión profunda.</p>
         <ul class="brand-features">
           <li class="brand-feature">
             <div class="brand-feature-icon">👥</div>
             <div>
               <strong>Audiencias Cautivas</strong>
-              <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:4px">Conecta directamente con miles de asistentes en el momento de mayor emoción.</p>
+              <p>Conecta con miles de asistentes en el momento de mayor emoción.</p>
             </div>
           </li>
           <li class="brand-feature">
             <div class="brand-feature-icon">⚖️</div>
             <div>
               <strong>Sustento Legal Impecable</strong>
-              <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:4px">Facturamos tu auspicio bajo el código CIIU de publicidad (M7310). 100% deducible.</p>
+              <p>Facturación bajo CIIU M7310. 100% deducible.</p>
             </div>
           </li>
         </ul>
       </div>
-      <div>
-        <img src="https://laescenaec.com/wp-content/uploads/2026/03/ImpactoBTL-inicio-LAESCENA-scaled.webp" alt="Impacto BTL" loading="lazy" onerror="this.style.display='none'">
-        <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:12px;text-align:center">
-          Impacto Garantizado • Alcance Post-Evento • Retargeting de Bases • Activaciones BTL • Naming Rights
-        </p>
+      <div class="brand-visual">
+        <div class="brand-visual-content">
+          <h3>Impacto <span class="gradient-text">LAESCENA</span></h3>
+          <div class="brand-stats">
+            <div class="brand-stat">
+              <div class="brand-stat-num">150%</div>
+              <div class="brand-stat-label">Deducción Fiscal</div>
+            </div>
+            <div class="brand-stat">
+              <div class="brand-stat-num">0</div>
+              <div class="brand-stat-label">Fallos Técnicos</div>
+            </div>
+            <div class="brand-stat">
+              <div class="brand-stat-num">24/7</div>
+              <div class="brand-stat-label">Operación</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -93,7 +122,7 @@
 <section>
   <div class="container">
     <div class="cta-section">
-      <h2>¿Listos para crear <span style="color:var(--accent)">La Escena</span>?</h2>
+      <h2>¿Listos para crear <span class="gradient-text">La Escena</span>?</h2>
       <p>Nuestro sistema inteligente te conectará con el equipo operativo y legal adecuado según tus necesidades.</p>
       <a href="/contacto/" class="btn-primary">Iniciar Solicitud en Línea →</a>
     </div>
