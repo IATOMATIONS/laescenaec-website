@@ -77,8 +77,21 @@
 
     /* HERO */
     .hero {
-      padding: 200px 0 120px; position: relative; overflow: hidden; text-align: center;
+      padding: 0; position: relative; overflow: hidden; text-align: center;
       min-height: 100vh; display: flex; align-items: center;
+    }
+    .hero-video {
+      position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+      width: auto; height: auto; z-index: 0; object-fit: cover;
+      transform: translate(-50%, -50%);
+      filter: brightness(0.5) saturate(1.1);
+    }
+    .hero-video-overlay {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(180deg, rgba(5,5,8,0.7) 0%, rgba(5,5,8,0.4) 40%, rgba(5,5,8,0.85) 100%),
+        radial-gradient(ellipse at 30% 40%, rgba(0,224,255,0.15), transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(157,0,255,0.15), transparent 60%);
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -86,6 +99,38 @@
         radial-gradient(ellipse at 30% 40%, var(--glow-cyan) 0%, transparent 50%),
         radial-gradient(ellipse at 70% 60%, var(--glow-purple) 0%, transparent 50%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-panel) 100%);
+      animation: hero-shift 12s ease-in-out infinite alternate;
+    }
+    @keyframes hero-shift {
+      0%   { background-position: 0% 0%, 100% 0%, 0 0; }
+      50%  { background-position: 50% 50%, 0% 50%, 0 100%; }
+      100% { background-position: 100% 100%, 0% 100%, 0 0; }
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.35;
+      animation: orb-float 8s ease-in-out infinite alternate;
+    }
+    .hero-orb-1 { width: 400px; height: 400px; top: 10%; left: -5%; background: var(--cyan); animation-delay: 0s; }
+    .hero-orb-2 { width: 350px; height: 350px; bottom: 15%; right: -5%; background: var(--purple); animation-delay: -3s; }
+    .hero-orb-3 { width: 250px; height: 250px; top: 40%; right: 25%; background: var(--cyan); opacity: 0.2; animation-delay: -5s; }
+    @keyframes orb-float {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, -40px) scale(1.15); }
+    }
+    .hero-scan {
+      position: absolute; inset: 0; z-index: 0; opacity: 0.08;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,224,255,0.5) 3px,
+        rgba(0,224,255,0.5) 4px
+      );
+      animation: scan-drift 4s linear infinite;
+    }
+    @keyframes scan-drift {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 4px; }
     }
     .hero-grid {
       position: absolute; inset: 0; z-index: 0; opacity: 0.1;
@@ -93,6 +138,13 @@
         linear-gradient(rgba(0,224,255,0.15) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,224,255,0.15) 1px, transparent 1px);
       background-size: 60px 60px;
+      perspective: 800px;
+      transform-style: preserve-3d;
+      animation: grid-rotate 20s linear infinite;
+    }
+    @keyframes grid-rotate {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 60px 60px, 60px 60px; }
     }
     .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 24px; }
     .hero-badge {
