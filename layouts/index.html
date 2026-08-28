@@ -1,15 +1,15 @@
 {{ define "main" }}
+<!-- ============================================
+     LA ESCENA EC — Inicio (Hugo estático)
+     Fuente de contenido: chat Geminichat + archivos Drive
+     Paleta: #00E0FF (cian) + #9D00FF (morado) + #050508 (negro)
+     ============================================ -->
+
 <section class="hero">
   <video class="hero-video" autoplay loop muted playsinline preload="auto">
     <source src="/media/hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-video-overlay"></div>
-  <div class="hero-bg"></div>
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
-  <div class="hero-scan"></div>
-  <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
@@ -24,115 +24,86 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="split-grid">
-      <div class="split-card cyan">
-        <h3>Para Inversores</h3>
-        <p>Oportunidades de inversión en la industria del entretenimiento en Ecuador. Modelo de ticketing in-house con 150% de deducción fiscal y ROI auditado.</p>
-        <a href="/marcas/" class="btn-secondary">Oportunidades Marcas →</a>
-      </div>
-      <div class="split-card purple">
-        <h3>Para Promotores</h3>
-        <p>Producción integral con estándares internacionales. Producción técnica, booking, gestión legal y activaciones BTL en un solo operador.</p>
-        <a href="/servicios/" class="btn-primary">Producir Evento →</a>
-      </div>
+<!-- SECCIÓN 2: Pantalla Dividida -->
+<section class="split">
+  <div class="split-cell split-cell-cyan">
+    <img src="/media/B2B-inicio-LAESCENA.webp" alt="B2B e Inversores" loading="lazy">
+    <div class="split-overlay-cyan"></div>
+    <div class="split-content">
+      <span class="split-tag">Para Inversores</span>
+      <h3>Marketing Experiencial para Marcas</h3>
+      <p>Ticketing in-house, retargeting de bases de fans, activaciones BTL. Modelo deducible como Servicios de Publicidad (CIIU M7310).</p>
+      <a href="/marcas/" class="btn-light">Oportunidades Marcas →</a>
     </div>
-
-    <div class="trust-bar">
-      <span>✦</span>
-      <span class="brand">Gestión Avalada</span>
-      <span class="divider">·</span>
-      <span>Ministerio de Cultura</span>
-      <span class="divider">·</span>
-      <span>SAYCE</span>
-      <span class="divider">·</span>
-      <span>SOPROFON</span>
-      <span class="divider">·</span>
-      <span>SRI Compliant</span>
-      <span class="divider">·</span>
-      <span>CIIU R9000.01</span>
-      <span>✦</span>
+  </div>
+  <div class="split-cell split-cell-purple">
+    <img src="/media/Fans-inicio.LAESCENA-1536x857.webp" alt="Fans y Promotores" loading="lazy">
+    <div class="split-overlay-purple"></div>
+    <div class="split-content">
+      <span class="split-tag">Para Promotores</span>
+      <h3>Producción Integral</h3>
+      <p>Estándares internacionales. Producción técnica, booking, gestión legal y activaciones BTL en un solo operador.</p>
+      <a href="/servicios/" class="btn-light">Producir Evento →</a>
     </div>
+  </div>
+  <div class="trust-bar">
+    <span class="trust-badge">✦</span>
+    <span class="trust-label">Gestión Avalada Por</span>
+    <span>Ministerio de Cultura</span>
+    <span class="divider">·</span>
+    <span>SAYCE</span>
+    <span class="divider">·</span>
+    <span>SOPROFON</span>
+    <span class="divider">·</span>
+    <span>SRI Compliant</span>
+    <span class="divider">·</span>
+    <span>CIIU R9000.01</span>
+    <span class="trust-badge">✦</span>
   </div>
 </section>
 
-<section id="ecosystem">
+<!-- SECCIÓN 3: Ecosistema -->
+<section id="ecosystem" class="eco-section">
   <div class="container">
     <h2 class="section-title">Nuestro <span class="gradient-text">Ecosistema</span></h2>
     <p class="section-desc">Tres pilares que hacen posible la experiencia LA ESCENA.</p>
     <div class="eco-grid">
       <div class="eco-card">
-        <div class="eco-icon">🎬</div>
-        <h3>Producción Técnica</h3>
-        <p>Estándares internacionales. Cero fallos. Ejecutamos desde el rider técnico hasta la dirección de escenario.</p>
+        <img src="/media/dossier-LAESCENA.webp" alt="Producción Técnica" loading="lazy">
+        <div class="eco-content">
+          <div class="eco-icon">🎬</div>
+          <h3>Producción Técnica</h3>
+          <p>Estándares internacionales. Cero fallos. Ejecutamos desde el rider técnico hasta la dirección de escenario.</p>
+        </div>
+      </div>
+      <div class="eco-card eco-card-highlight">
+        <img src="/media/Escudo-legal-financiero-servicios-LAESCENA.webp" alt="Escudo Legal" loading="lazy">
+        <div class="eco-content">
+          <div class="eco-icon">🛡️</div>
+          <h3>El Escudo Legal</h3>
+          <p>Permisos municipales, contratos de mandato y blindaje operativo bajo CIIU R9000.01.</p>
+        </div>
       </div>
       <div class="eco-card">
-        <div class="eco-icon">🛡️</div>
-        <h3>Escudo Legal</h3>
-        <p>Permisos municipales, contratos de mandato y blindaje operativo bajo CIIU R9000.01.</p>
-      </div>
-      <div class="eco-card">
-        <div class="eco-icon">📊</div>
-        <h3>Booking & Data</h3>
-        <p>Maximizamos el ROI. Negociación directa con agencias y análisis predictivo de audiencia para tu taquilla.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="brand-grid">
-      <div>
-        <h2 class="section-title">Tu marca en el centro de <span class="gradient-text">la experiencia</span></h2>
-        <p class="section-desc">Transformamos eventos masivos en plataformas de conexión profunda.</p>
-        <ul class="brand-features">
-          <li class="brand-feature">
-            <div class="brand-feature-icon">👥</div>
-            <div>
-              <strong>Audiencias Cautivas</strong>
-              <p>Conecta con miles de asistentes en el momento de mayor emoción.</p>
-            </div>
-          </li>
-          <li class="brand-feature">
-            <div class="brand-feature-icon">⚖️</div>
-            <div>
-              <strong>Sustento Legal Impecable</strong>
-              <p>Facturación bajo CIIU M7310. 100% deducible.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="brand-visual">
-        <div class="brand-visual-content">
-          <h3>Impacto <span class="gradient-text">LAESCENA</span></h3>
-          <div class="brand-stats">
-            <div class="brand-stat">
-              <div class="brand-stat-num">150%</div>
-              <div class="brand-stat-label">Deducción Fiscal</div>
-            </div>
-            <div class="brand-stat">
-              <div class="brand-stat-num">0</div>
-              <div class="brand-stat-label">Fallos Técnicos</div>
-            </div>
-            <div class="brand-stat">
-              <div class="brand-stat-num">24/7</div>
-              <div class="brand-stat-label">Operación</div>
-            </div>
-          </div>
+        <img src="/media/Agencia-booking-servicios-LAESCENA.webp" alt="Booking & Data" loading="lazy">
+        <div class="eco-content">
+          <div class="eco-icon">📊</div>
+          <h3>Booking & Data</h3>
+          <p>Maximizamos el ROI. Negociación directa con agencias y análisis predictivo de audiencia.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="cta-section">
-      <h2>¿Listos para crear <span class="gradient-text">La Escena</span>?</h2>
-      <p>Nuestro sistema inteligente te conectará con el equipo operativo y legal adecuado según tus necesidades.</p>
-      <a href="/contacto/" class="btn-primary">Iniciar Solicitud en Línea →</a>
+<!-- SECCIÓN 4: Call to Action -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <h2>Construyamos <span class="gradient-text">La Escena</span>.</h2>
+    <p>La oportunidad de inversión cuenta con plazos limitados. Contáctanos para formalizar tu participación.</p>
+    <div class="hero-buttons">
+      <a href="/contacto/" class="btn-primary">Iniciar Solicitud →</a>
+      <a href="mailto:inversiones@laescenaec.com" class="btn-secondary">inversiones@laescenaec.com</a>
     </div>
   </div>
 </section>
