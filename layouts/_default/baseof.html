@@ -419,10 +419,79 @@
     .footer-bottom p { color: var(--text-secondary); font-size: 0.8rem; }
 
     @media (max-width: 768px) {
+      /* GRIDS → 1 columna */
       .split-grid, .brand-grid, .eco-grid { grid-template-columns: 1fr; }
-      .cta-section { padding: 40px 24px; }
-      .footer-content { grid-template-columns: 1fr 1fr; }
+      .split { grid-template-columns: 1fr; }
+
+      /* HERO → más compacto en móvil */
+      .hero { padding: 120px 0 80px; min-height: auto; }
+      .hero h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .hero p { font-size: 1rem; }
+      .hero-content { max-width: 90%; padding: 0 16px; }
+      .hero-buttons { flex-direction: column; gap: 12px; align-items: stretch; }
+      .hero-buttons a { text-align: center; }
+      .hero-badge { padding: 8px 16px; font-size: 0.7rem; letter-spacing: 2px; }
+
+      /* SPLIT-CELL → apilado, padding reducido */
+      .split-cell { min-height: 60vh; padding: 40px 24px; }
+      .split-content { max-width: 100%; }
+      .split-content h3 { font-size: 1.6rem; }
+      .split-content p { font-size: 0.95rem; }
+      .split-tag { font-size: 0.65rem; letter-spacing: 2px; padding: 5px 12px; }
+
+      /* ECOSYSTEM → imágenes más bajas, texto más pequeño */
+      .eco-section { padding: 80px 0; }
+      .eco-card img { height: 180px; }
+      .eco-content { padding: 24px 20px; }
+      .eco-content h3 { font-size: 1.1rem; }
+      .eco-icon { font-size: 1.6rem; margin-bottom: 12px; }
+
+      /* SECTIONS */
+      .section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+      .section-desc { font-size: 0.95rem; margin-bottom: 32px; }
+
+      /* TRUST-BAR → wrap agresivo */
+      .trust-bar { gap: 12px; padding: 20px 0; font-size: 0.7rem; }
+
+      /* CTA */
+      .cta-section { padding: 60px 24px; }
+      .cta-inner { padding: 40px 24px; }
+      .cta-section h2 { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+      .cta-section p { font-size: 0.95rem; max-width: 100%; }
+      .cta-inner .hero-buttons { flex-direction: column; gap: 12px; }
+
+      /* FOOTER → columna simple */
+      .footer-content { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .footer-bottom { text-align: center; flex-direction: column; gap: 8px; }
+
+      /* NAV → móvil */
       .nav-links { display: none; }
+
+      /* CONTAINER */
+      .container { padding: 0 16px; }
+
+      /* PAGE-CONTENT */
+      .page-content .content { max-width: 100%; padding: 40px 16px; }
+
+      /* BOTONES */
+      .btn-primary, .btn-secondary, .btn-light {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+      }
+
+      /* H1/H2/H3 */
+      h1 { font-size: clamp(1.8rem, 7vw, 2.8rem) !important; }
+      h2 { font-size: clamp(1.4rem, 5.5vw, 2rem) !important; }
+      h3 { font-size: clamp(1.1rem, 4vw, 1.5rem) !important; }
+    }
+
+    /* Mobile muy pequeño (320-380px) */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 2rem; }
+      .split-cell { padding: 32px 16px; min-height: 55vh; }
+      .split-content h3 { font-size: 1.4rem; }
+      .eco-card img { height: 160px; }
+      .container { padding: 0 12px; }
     }
   </style>
 </head>
